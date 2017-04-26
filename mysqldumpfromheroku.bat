@@ -1,0 +1,1 @@
+mysqldump -h wftuqljwesiffol6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com -u xibb1b130kvaubqr -pbfbk8p2qsn2dzu99 or73uyosqjevukto > backupbdd.sql
