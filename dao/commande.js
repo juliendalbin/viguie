@@ -52,8 +52,8 @@ exports.insertCommande = function (req, res) {
             dateLivraison: input.dateLivraison,
             lieuLivraison: input.lieuLivraison,
             quantite: input.quantite,
-            client_idclient: input.idclient,
-            colis_idcolis: input.idcolis
+            client_idclient: input.client_idclient,
+            colis_idcolis: input.colis_idcolis
         };
 
         var query = connection.query("INSERT INTO commande set ? ", data, function (err, rows) {
@@ -84,8 +84,8 @@ exports.updateCommande = function (req, res) {
             dateLivraison: input.dateLivraison,
             lieuLivraison: input.lieuLivraison,
             quantite: input.quantite,
-            client_idclient: input.idclient,
-            colis_idcolis: input.idcolis
+            client_idclient: input.client_idclient,
+            colis_idcolis: input.colis_idcolis
         };
 
         var query = connection.query("UPDATE commande set ? WHERE idcommande = ? ", [data, id], function (err, rows) {
