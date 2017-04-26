@@ -3,7 +3,6 @@
  */
 
 var express = require('express');
-var dao = require('./dao');
 var http = require('http');
 var path = require('path');
 var jwt = require('jsonwebtoken');
@@ -121,20 +120,20 @@ app.use(function (req, res, next) {
 });
 
 app.get('/client', client.selectAllClient);
-app.post('/api/client', client.insertClient);
-app.get('/api/client/:id', client.selectClientById);
-app.put('/api/client/:id', client.updateClient);
-app.delete('/api/client/:id', client.deleteClient);
+app.post('/client', client.insertClient);
+app.get('/client/:id', client.selectClientById);
+app.put('/client/:id', client.updateClient);
+app.delete('/client/:id', client.deleteClient);
 app.get('/commande', commande.selectAllCommande);
-app.post('/api/commande', commande.insertCommande);
-app.get('/api/commande/:id', commande.selectCommandeById);
-app.put('/api/commande/:id', commande.updateCommande);
-app.delete('/api/commande/:id', commande.deleteCommande);
+app.post('/commande', commande.insertCommande);
+app.get('/commande/:id', commande.selectCommandeById);
+app.put('/commande/:id', commande.updateCommande);
+app.delete('/commande/:id', commande.deleteCommande);
 app.get('/colis', colis.selectAllColis);
-app.post('/api/colis', colis.insertColis);
-app.get('/api/colis/:id', colis.selectColisById);
-app.put('/api/colis/:id', colis.updateColis);
-app.delete('/api/colis/:id', colis.deleteColis);
+app.post('/colis', colis.insertColis);
+app.get('/colis/:id', colis.selectColisById);
+app.put('/colis/:id', colis.updateColis);
+app.delete('/colis/:id', colis.deleteColis);
 
 app.use(app.router);
 
