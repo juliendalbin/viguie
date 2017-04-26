@@ -76,7 +76,7 @@ app.use(
     connection(mysql, {
 
         host: 'wftuqljwesiffol6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-        user: '	xibb1b130kvaubqr',
+        user: 'xibb1b130kvaubqr',
         password: 'bfbk8p2qsn2dzu99',
         port: 3306, //port mysql
         database: 'or73uyosqjevukto'
