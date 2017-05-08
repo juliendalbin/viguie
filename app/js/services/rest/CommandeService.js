@@ -1,4 +1,4 @@
-PCIE.factory("commandeService", function($q, $http) {
+app.factory("commandeService", function($q, $http) {
 
 	return {
 

@@ -1,4 +1,4 @@
-PCIE.factory("colisService", function($q, $http) {
+app.factory("colisService", function($q, $http) {
 
 	return {
 
