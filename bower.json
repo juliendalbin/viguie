@@ -1,6 +1,6 @@
 {
   "name": "app",
-  "homepage": "https://github.com/PCIE/PCIE-master",
+  "homepage": "https://github.com/viguie",
   "authors": [
     "Julien <julien.dalbin@gmail.com>"
   ],
@@ -27,7 +27,6 @@
     "ng-file-upload": "^12.0.4",
     "font-awesome": "^4.6.3",
     "ng-table": "^1.0.0",
-    "restangular": "^1.5.2",
     "angular-ui-router": "^0.3.1",
     "underscore": "^1.8.3",
     "sweetalert2": "^4.2.4"
