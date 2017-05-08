@@ -63,7 +63,7 @@
   "scripts": {
     "start": "node app.js",
     "postinstall": "node node_modules/bower/bin/bower install",
-    "web": "node node_modules/gulp/bin/gulp"
+    "web": "node node_modules/gulp/bin/gulp serve"
   },
   "author": "",
   "license": "ISC"
