@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app').component('home', {
-    templateUrl: 'src/components/home/view.html',
+    templateUrl: 'js/components/home/view.html',
     controller: homeController
 });
 

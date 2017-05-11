@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app').component('navbar', {
-    templateUrl: 'src/components/navbar/view.html',
+    templateUrl: 'js/components/navbar/view.html',
     controller: navbarController
 });
 
