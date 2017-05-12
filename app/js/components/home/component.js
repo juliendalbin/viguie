@@ -5,6 +5,6 @@ angular.module('app').component('home', {
     controller: homeController
 });
 
-function homeController($stateParams, $modal,
+function homeController($stateParams, $uibModal,
                                 $scope, $q) {
 }

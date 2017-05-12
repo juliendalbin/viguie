@@ -5,6 +5,8 @@ angular.module('app').component('navbar', {
     controller: navbarController
 });
 
-function navbarController($stateParams, $modal,
+function navbarController($stateParams, $uibModal,$state,
                                 $scope, $q) {
+	var vm = this;
+	
 }
