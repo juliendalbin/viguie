@@ -134,6 +134,11 @@ app.post('/colis', colis.insertColis);
 app.get('/colis/:id', colis.selectColisById);
 app.put('/colis/:id', colis.updateColis);
 app.delete('/colis/:id', colis.deleteColis);
+app.get('/livraison', colis.selectAllLivraison);
+app.post('/livraison', colis.insertLivraison);
+app.get('/livraison/:id', colis.selectLivraisonById);
+app.put('/livraison/:id', colis.updateLivraison);
+app.delete('/livraison/:id', colis.deleteLivraison);
 
 app.use(app.router);
 
