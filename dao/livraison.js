@@ -3,27 +3,27 @@
  */
 var bcrypt = require('bcrypt-nodejs');
 
-exports.selectAllCommande = function (req, res) {
+exports.selectAllLivraison = function (req, res) {
 
     req.getConnection(function (err, connection) {
 
         if (err)
             console.log("Error Selecting : %s ", err);
 
-        var query = connection.query('SELECT * FROM commande', function (err, rows) {
+        var query = connection.query('SELECT * FROM livraison', function (err, rows) {
             res.json(rows);
         });
     });
 
 };
 
-exports.selectCommandeById = function (req, res) {
+exports.selectLivraisonById = function (req, res) {
 
     var id = req.params.id;
     console.log(id);
 
     req.getConnection(function (err, connection) {
-        var query = connection.query("SELECT * FROM commande WHERE idcommande=?", [id], function (err, rows) {
+        var query = connection.query("SELECT * FROM livraison WHERE idlivraison=?", [id], function (err, rows) {
             if (err)
                 console.log("Error Selecting : %s ", err);
             console.log("client", rows);
@@ -33,7 +33,7 @@ exports.selectCommandeById = function (req, res) {
     });
 };
 
-exports.insertCommande = function (req, res) {
+exports.insertLivraison = function (req, res) {
 
     var input = JSON.parse(JSON.stringify(req.body));
     console.log("in "+JSON.stringify(input));
@@ -48,14 +48,11 @@ exports.insertCommande = function (req, res) {
     req.getConnection(function (err, connection) {
 
         var data = {
-            dateCommande: input.dateCommande,
-            quantite: input.quantite,
-            client_idclient: input.client_idclient,
-            colis_idcolis: input.colis_idcolis,
-            livraison_idlivraison :inpu.livraison_idlivraison
+            date: input.date,
+            lieu: input.lieu
         };
 
-        var query = connection.query("INSERT INTO commande set ? ", data, function (err, rows) {
+        var query = connection.query("INSERT INTO livraison set ? ", data, function (err, rows) {
 
             if (err)
                 console.log("Error Selecting : %s ", err);
@@ -64,7 +61,7 @@ exports.insertCommande = function (req, res) {
     });
 };
 
-exports.updateCommande = function (req, res) {
+exports.updateLivraison = function (req, res) {
 
     var input = JSON.parse(JSON.stringify(req.body));
     var id = req.params.id;
@@ -79,14 +76,11 @@ exports.updateCommande = function (req, res) {
     req.getConnection(function (err, connection) {
 
         var data = {
-            dateCommande: input.dateCommande,
-            quantite: input.quantite,
-            client_idclient: input.client_idclient,
-            colis_idcolis: input.colis_idcolis,
-            livraison_idlivraison :inpu.livraison_idlivraison
+            date: input.date,
+            lieu: input.lieu
         };
 
-        var query = connection.query("UPDATE commande set ? WHERE idcommande = ? ", [data, id], function (err, rows) {
+        var query = connection.query("UPDATE livraison set ? WHERE idlivraison = ? ", [data, id], function (err, rows) {
 
             if (err)
                 console.log("Error Selecting : %s ", err);
@@ -96,13 +90,13 @@ exports.updateCommande = function (req, res) {
     });
 };
 
-exports.deleteCommande = function (req, res) {
+exports.deleteLivraison = function (req, res) {
 
     var id = req.params.id;
 
     req.getConnection(function (err, connection) {
 
-        var query = connection.query("DELETE FROM commande  WHERE idcommande = ? ", [id], function (err, rows) {
+        var query = connection.query("DELETE FROM livraison  WHERE idlivraison = ? ", [id], function (err, rows) {
 
             if (err)
                 console.log("Error Selecting : %s ", err);
