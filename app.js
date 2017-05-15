@@ -20,6 +20,7 @@ var secret = 'n8jTwiRYBtJF25Wpk7X1fRvtxDrKs8P5lXP16DqytRwa0Pfa6omupI5YWgGjF3kUeP
 var client = require('./dao/client');
 var commande = require('./dao/commande');
 var colis = require('./dao/colis');
+var livraison = require('./dao/livraison');
 var authorize = require('./service/authorize');
 var UserController = require('./controller/UserController');
 
@@ -134,11 +135,11 @@ app.post('/colis', colis.insertColis);
 app.get('/colis/:id', colis.selectColisById);
 app.put('/colis/:id', colis.updateColis);
 app.delete('/colis/:id', colis.deleteColis);
-app.get('/livraison', colis.selectAllLivraison);
-app.post('/livraison', colis.insertLivraison);
-app.get('/livraison/:id', colis.selectLivraisonById);
-app.put('/livraison/:id', colis.updateLivraison);
-app.delete('/livraison/:id', colis.deleteLivraison);
+app.get('/livraison', livraison.selectAllLivraison);
+app.post('/livraison', livraison.insertLivraison);
+app.get('/livraison/:id', livraison.selectLivraisonById);
+app.put('/livraison/:id', livraison.updateLivraison);
+app.delete('/livraison/:id', livraison.deleteLivraison);
 
 app.use(app.router);
 
