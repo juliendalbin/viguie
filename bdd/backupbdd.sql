@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: wftuqljwesiffol6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com    Database: or73uyosqjevukto
+-- Host: localhost    Database: viguie
 -- ------------------------------------------------------
--- Server version	5.7.11-log
+-- Server version	5.7.12-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -83,17 +83,18 @@ DROP TABLE IF EXISTS `commande`;
 CREATE TABLE `commande` (
   `idcommande` int(11) NOT NULL AUTO_INCREMENT,
   `dateCommande` date DEFAULT NULL,
-  `dateLivraison` date DEFAULT NULL,
-  `lieuLivraison` varchar(45) DEFAULT NULL,
   `quantite` int(11) DEFAULT NULL,
   `client_idclient` int(11) NOT NULL,
   `colis_idcolis` int(11) NOT NULL,
+  `livraison_idlivraison` int(11) NOT NULL,
   PRIMARY KEY (`idcommande`,`client_idclient`,`colis_idcolis`),
   KEY `fk_commande_client_idx` (`client_idclient`),
   KEY `fk_commande_colis1_idx` (`colis_idcolis`),
+  KEY `fk_commande_livraison1_idx` (`livraison_idlivraison`),
   CONSTRAINT `fk_commande_client` FOREIGN KEY (`client_idclient`) REFERENCES `client` (`idclient`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_commande_colis1` FOREIGN KEY (`colis_idcolis`) REFERENCES `colis` (`idcolis`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_commande_colis1` FOREIGN KEY (`colis_idcolis`) REFERENCES `colis` (`idcolis`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_commande_livraison1` FOREIGN KEY (`livraison_idlivraison`) REFERENCES `livraison` (`idlivraison`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,8 +103,33 @@ CREATE TABLE `commande` (
 
 LOCK TABLES `commande` WRITE;
 /*!40000 ALTER TABLE `commande` DISABLE KEYS */;
-INSERT INTO `commande` VALUES (1,'2017-05-02','2017-05-26','Coudercous',3,1,1),(2,'2017-05-02','2017-05-26','Balma',3,1,1);
+INSERT INTO `commande` VALUES (1,'2017-05-02',3,1,1,1),(2,'2017-05-02',3,1,1,1);
 /*!40000 ALTER TABLE `commande` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `livraison`
+--
+
+DROP TABLE IF EXISTS `livraison`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `livraison` (
+  `idlivraison` int(11) NOT NULL,
+  `lieu` varchar(45) DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  PRIMARY KEY (`idlivraison`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `livraison`
+--
+
+LOCK TABLES `livraison` WRITE;
+/*!40000 ALTER TABLE `livraison` DISABLE KEYS */;
+INSERT INTO `livraison` VALUES (1,'Coudercous','2017-06-02'),(2,'Balma','2017-07-02');
+/*!40000 ALTER TABLE `livraison` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -115,4 +141,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-26 21:56:31
+-- Dump completed on 2017-05-15 10:06:13

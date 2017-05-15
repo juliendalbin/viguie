@@ -1,0 +1,1 @@
+mysqldump -h localhost -u root -pParaski0 viguie > backupbdd.sql
